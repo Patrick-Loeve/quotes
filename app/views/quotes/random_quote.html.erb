@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <% if @quote %>
+    <div class="random-quote">
+      <h1>" <%= @quote.quote %> "</h1>
+      <h4 class="pull-right"><em>suorce: <%= @quote.source %> </em></h4>
+    </div>
+    <% else %>
+      <p class="random-quote">
+        It looks like there are no quotes in the database, so <%= link_to "sign in", '#' %> and add quotes to the database
+      </p>
+
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var colors = ['#1abc9c', '#2ecc71','#3498db','#9b59b6','#34495e'];
+
+  $('.color').css(
+    "background-color", colors[
+      Math.floor(
+        Math.random()*colors.length
+      )
+    ]
+  );
+</script>

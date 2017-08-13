@@ -9,7 +9,7 @@ class QuotesController < ApplicationController
   end
 
   def edit
-
+    @quote = Quote.find(params[:id])
   end
 
   def create
@@ -24,6 +24,7 @@ class QuotesController < ApplicationController
   end
 
   def update
+    @quote = Quote.find(params[:id])
     if @quote.update(quote_params)
       flash[:notice] = "Your Quote is succesfully updated"
       redirect_to quote_path(@quote)
@@ -43,6 +44,10 @@ class QuotesController < ApplicationController
     @quote.destroy
     flash[:notice] = "Quote is succesfully deleted!"
     redirect_to quotes_path
+  end
+
+  def random_quote
+    @quote = Quote.order("RANDOM()").first
   end
 
   private
