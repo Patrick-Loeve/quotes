@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <% @users.each do |user| %>
+        <div class="panel panel-default">
+          <div class="panel-heading"><%= user.name %></div>
+          <div class="panel-body">
+            <%= link_to "edit user", edit_user_path(user) %>
+          </div>
+          <div class="panel-footer">
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

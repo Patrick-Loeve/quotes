@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap3-rails'
 gem 'simple_form', '~> 3.1.0'
+gem 'bcrypt', '~> 3.1.7'
+
 
 
 

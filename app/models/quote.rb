@@ -1,3 +1,4 @@
 class Quote < ActiveRecord::Base
-  validates :quote, :source, presence: true
+  belongs_to :user
+  validates :quote, :source, :user_id, presence: true
 end

@@ -1,0 +1,20 @@
+
+<div class="container">
+  <div class"row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading"></div>
+          <div class="panel-body">
+            <%= simple_form_for @user do |f| %>
+              <%= f.input :name, placeholder: 'Please enter your name' %>
+              <%= f.input :email, placeholder: 'Please enter your email' %>
+              <%= f.input :password, placeholder: 'Enter Password' %>
+              <%= f.submit(@user.new_record? ? "Sign up" : "update account", class: 'btn btn-primary ') %>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

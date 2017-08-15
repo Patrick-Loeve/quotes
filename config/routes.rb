@@ -8,6 +8,8 @@ Rails.application.routes.draw do
    root 'quotes#random_quote'
 
   resources :quotes
+  get 'signup', to: 'users#new'
+  resources :users, ecxept: [:new]
 
 
   # Example of regular route:

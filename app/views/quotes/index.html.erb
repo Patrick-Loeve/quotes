@@ -8,13 +8,14 @@
       <h2>This is a listing of all the quotes</h2>
       <% @quotes.each do |quote| %>
         <div class="panel panel-default">
-          <div class="panel-heading">This is the Quote</div>
+          <div class="panel-heading">Created by: <%= quote.user.name %></div>
             <div class="panel-body">
               <p class="quote-text text-center">
                 "<%= quote.quote %>"
               </p>
               <br/>
               <p class="text-right"><em>source: <%= quote.source %></em></p>
+
             </div>
             <div class="panel-footer">
               <%= link_to "Show Quote", quote_path(quote), class: "btn btn-success" %>
