@@ -11,7 +11,14 @@ body {
 }
 
 .panel-default > .panel-heading {
-  background-color: #BDC3C7;
+  background-color: #D9435F;
+  color:#fff;
+}
+.btn-success {
+  background-color: #2CBFA4;
+}
+.btn-danger{
+  background-color: #D94343;
 }
 .random-quote {
   h1{
@@ -36,4 +43,7 @@ body {
   padding: 10px ;
   background-color: #fff;
   font-family: 'Sedgwick Ave', cursive;
+}
+.container {
+  margin-top:40px;
 }

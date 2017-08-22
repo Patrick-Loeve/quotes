@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-heading"> <h3 style="color:fff;"> Log in to the quote app </h3> </div>
+    <div class="panel-body">
+      <%= simple_form_for :session, url: login_path do |f| %>
+
+        <%= f.input :email, placeholder: 'Please enter your email' %>
+        <%= f.input :password, placeholder: 'Enter Password' %>
+        <%= f.submit "Login", class: 'btn btn-primary ' %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

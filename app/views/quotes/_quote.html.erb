@@ -1,0 +1,20 @@
+<% obj.each do |quote| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">Created by: <%= quote.user.name  %></div>
+      <div class="panel-body">
+        <p class="quote-text text-center">
+          "<%= quote.quote %>"
+        </p>
+        <br/>
+        <p class="text-right"><em>source: <%= quote.source %></em></p>
+
+      </div>
+      <% if logged_in? && current_user == quote.user %>
+        <div class="panel-footer">
+          <%= link_to "Show Quote", quote_path(quote), class: "btn btn-success" %>
+          <%= link_to "edit Quote", edit_quote_path(quote), class: "btn btn-warning" %>
+          <%= link_to "Delete Quote", quote_path(quote), method: :delete, data: {confirm: "Are you sure to delete this quote?"}, class: "btn btn-danger" %>
+        </div>
+      <% end %>
+  </div>
+<% end %>

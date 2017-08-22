@@ -3,12 +3,18 @@
     <div class="col-md-8 col-md-offset-2">
       <% @users.each do |user| %>
         <div class="panel panel-default">
-          <div class="panel-heading"><%= user.name %></div>
+          <div class="panel-heading">
+            <div align="center">
+              <%= link_to gravatar_for(user), user_path(user) %>
+            <br>
+              <%= user.name %>
+            </div>
+          </div>
           <div class="panel-body">
-            <%= link_to "edit user", edit_user_path(user) %>
+            <%= link_to "Show user page", user_path(user) %>
           </div>
           <div class="panel-footer">
-
+            <p><%=user.name %> has <%= user.quotes.count %> Quotes </p>
           </div>
         </div>
       <% end %>

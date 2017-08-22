@@ -1,5 +1,11 @@
-<%= simple_form_for @quote do |f| %>
-  <%= f.input :quote, placeholder: 'Write your Quote' %>
-  <%= f.input :source, placeholder: 'Enter the source where the quote comes from' %>
-  <%= f.button :submit, class: "btn btn-success" %>
-<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading"><h4><%= @quote.new_record? ? "Create a new Quote" : "Edit Youre Quote" %> </h4></div>
+    <div class="panel-body">
+      <%= simple_form_for @quote do |f| %>
+        <%= f.input :quote, placeholder: 'Write your Quote' %>
+        <%= f.input :source, placeholder: 'Enter the source where the quote comes from' %>
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

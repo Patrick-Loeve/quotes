@@ -1,7 +1,10 @@
 class QuotesController < ApplicationController
+  before_action :set_quote, only: [:edit, :update, :show, :destroy]
+  before_action :require_login, except: [ :index, :show, :random_quote ]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
-    @quotes = Quote.all
+    @quotes = Quote.all.order("created_at DESC")
   end
 
   def new
@@ -9,14 +12,14 @@ class QuotesController < ApplicationController
   end
 
   def edit
-    @quote = Quote.find(params[:id])
+
   end
 
   def create
     @quote = Quote.new(quote_params)
-    @quote.user = User.first
+    @quote.user = current_user
     if @quote.save
-      flash[:notice] = "Youre created succesfully a new Quote!!"
+      flash[:success] = "Youre created succesfully a new Quote!!"
       redirect_to quote_path(@quote)
     else
       render 'new'
@@ -25,7 +28,7 @@ class QuotesController < ApplicationController
   end
 
   def update
-    @quote = Quote.find(params[:id])
+
     if @quote.update(quote_params)
       flash[:notice] = "Your Quote is succesfully updated"
       redirect_to quote_path(@quote)
@@ -36,12 +39,10 @@ class QuotesController < ApplicationController
 
   def show
 
-    @quote = Quote.find(params[:id])
-
   end
 
   def destroy
-    @quote = Quote.find(params[:id])
+
     @quote.destroy
     flash[:notice] = "Quote is succesfully deleted!"
     redirect_to quotes_path
@@ -53,10 +54,20 @@ class QuotesController < ApplicationController
 
   private
 
+  def set_quote
+    @quote = Quote.find(params[:id])
+  end
+
   def quote_params
     params.require(:quote).permit(:quote, :source)
   end
 
+  def require_same_user
+    if current_user != @quote.user
+      flash[:notice] = "you can not edit quotes from other users"
+      redirect_to user_path(current_user)
+    end
+  end
 
 
 end
