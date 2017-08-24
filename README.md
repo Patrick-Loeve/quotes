@@ -2,10 +2,12 @@
 Displaying random quotes
 
 ## Setup
-```
-clone with ssh
+
+###clone with ssh
 ```
 git@github.com:Patrick-Loeve/quotes.git
+```
+
 ```
 bundle install
 rake db:create
