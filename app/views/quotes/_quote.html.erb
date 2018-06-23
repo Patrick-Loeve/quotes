@@ -1,4 +1,4 @@
-<% obj.each do |quote| %>
+<% obj.order("created_at DESC").each do |quote| %>
   <div class="panel panel-default">
     <div class="panel-heading">Created by: <%= quote.user.name  %></div>
       <div class="panel-body">

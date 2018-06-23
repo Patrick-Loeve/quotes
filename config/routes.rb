@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    root 'quotes#random_quote'
 
   resources :quotes
+  resources :imports
   get 'signup', to: 'users#new'
   resources :users, ecxept: [:new]
 
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
 
   delete 'logout', to: 'sessions#destroy'
+
 
 
   # Example of regular route:
